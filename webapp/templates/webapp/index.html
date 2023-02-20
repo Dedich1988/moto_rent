@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -8,18 +9,18 @@
 
     <link href="https://fonts.googleapis.com/css?family=DM+Sans:300,400,700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="{% static 'webapp/fonts/icomoon/style.css' %}">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="{% static 'webapp/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/css/bootstrap-datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/css/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/fonts/flaticon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'webapp/css/aos.css' %}">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'webapp/css/style.css' %}">
 
   </head>
 
@@ -76,7 +77,7 @@
       </header>
 
     <div class="ftco-blocks-cover-1">
-      <div class="ftco-cover-1 overlay" style="background-image: url('images/hero_1.jpg')">
+      <div class="ftco-cover-1 overlay" style="background-image: url('../../static/webapp/images/hero_1.jpg')">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-5">
@@ -126,7 +127,7 @@
                     <h3 class="m-0">Begin your trip here</h3>
                   </div>
                   <div class="col-md-6 text-md-right">
-                    <span class="text-primary">32</span> <span>cars available</span></span>
+                    <span class="text-primary">32</span> <span>cars available</span>
                   </div>
                 </div>
                 <div class="row">
@@ -179,7 +180,7 @@
 
             <div class="nonloop-block-13 owl-carousel">
               <div class="item-1">
-                <a href="#"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="{% static 'webapp/images/img_1.jpg' %}" alt="Image" class="img-fluid"></a>
                 <div class="item-1-contents">
                   <div class="text-center">
                   <h3><a href="#">Range Rover S64 Coupe</a></h3>
@@ -218,7 +219,7 @@
 
 
               <div class="item-1">
-                <a href="#"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="{% static 'webapp/images/img_2.jpg' %}" alt="Image" class="img-fluid"></a>
                 <div class="item-1-contents">
                   <div class="text-center">
                   <h3><a href="#">Range Rover S64 Coupe</a></h3>
@@ -262,7 +263,7 @@
       </div>
     </div>
 
-    <div class="site-section section-3" style="background-image: url('images/hero_2.jpg');">
+    <div class="site-section section-3" style="background-image: url('../../static/webapp/images/hero_2.jpg');">
       <div class="container">
         <div class="row">
           <div class="col-12 text-center mb-5">
@@ -356,7 +357,7 @@
                 <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
-                <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
+                <img src="{% static 'webapp/images/person_1.jpg' %}" alt="Image" class="img-fluid mr-3">
                 <span>Mike Fisher</span>
               </div>
             </div>
@@ -367,7 +368,7 @@
                 <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
-                <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
+                <img src="{% static 'webapp/images/person_2.jpg' %}" alt="Image" class="img-fluid mr-3">
                 <span>Jean Stanley</span>
               </div>
             </div>
@@ -378,7 +379,7 @@
                 <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
-                <img src="images/person_3.jpg" alt="Image" class="img-fluid mr-3">
+                <img src="{% static 'webapp/images/person_3.jpg' %}" alt="Image" class="img-fluid mr-3">
                 <span>Katie Rose</span>
               </div>
             </div>
@@ -401,7 +402,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="post-entry-1 h-100">
               <a href="single.html">
-                <img src="images/post_1.jpg" alt="Image"
+                <img src="{% static 'webapp/images/post_1.jpg' %}" alt="Image"
                  class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
@@ -415,7 +416,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="post-entry-1 h-100">
               <a href="single.html">
-                <img src="images/img_2.jpg" alt="Image"
+                <img src="{% static 'webapp/images/img_2.jpg' %}" alt="Image"
                  class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
@@ -430,7 +431,7 @@
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="post-entry-1 h-100">
               <a href="single.html">
-                <img src="images/img_3.jpg" alt="Image"
+                <img src="{% static 'webapp/images/img_3.jpg' %}" alt="Image"
                  class="img-fluid">
               </a>
               <div class="post-entry-1-contents">
@@ -516,19 +517,19 @@
 
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/bootstrap-datepicker.min.js"></script>
-    <script src="js/aos.js"></script>
+    <script src="{% static 'webapp/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'webapp/js/popper.min.js' %}"></script>
+    <script src="{% static 'webapp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'webapp/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'webapp/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'webapp/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'webapp/js/jquery.animateNumber.min.js' %}"></script>
+    <script src="{% static 'webapp/js/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'webapp/js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'webapp/js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'webapp/js/aos.js' %}"></script>
 
-    <script src="js/main.js"></script>
+    <script src="{% static 'webapp/js/main.js' %}"></script>
 
   </body>
 
