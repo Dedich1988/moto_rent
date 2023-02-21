@@ -63,12 +63,12 @@
 
               <nav class="site-navigation text-right ml-auto d-none d-lg-block" role="navigation">
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
-                  <li class="active"><a href="{% url 'webapp:home' %}" class="nav-link">Home</a></li>
-                  <li><a href="services.html" class="nav-link">Services</a></li>
-                  <li><a href="cars.html" class="nav-link">Cars</a></li>
-                  <li><a href="{% url 'webapp:about' %}" class="nav-link">About</a></li>
+                  <li {% if request.resolver_match.url_name == 'home' %} class="active"{% endif %}><a href="{% url 'webapp:home' %}" class="nav-link">Home</a></li>
+				  <li {% if request.resolver_match.url_name == 'services' %} class="active"{% endif %}><a href="{% url 'webapp:services' %}" class="nav-link">Services</a></li>
+                  <li {% if request.resolver_match.url_name == 'cars' %} class="active"{% endif %}><a href="{% url 'webapp:cars' %}" class="nav-link">Cars</a></li>
+                  <li {% if request.resolver_match.url_name == 'about' %} class="active"{% endif %}><a href="{% url 'webapp:about' %}" class="nav-link">About</a></li>
                   <li><a href="blog.html" class="nav-link">Blog</a></li>
-                  <li><a href="contact.html" class="nav-link">Contact</a></li>
+                  <li {% if request.resolver_match.url_name == 'contact' %} class="active"{% endif %}><a href="{% url 'webapp:contact' %}" class="nav-link">Contact</a></li>
                 </ul>
               </nav>
             </div>
