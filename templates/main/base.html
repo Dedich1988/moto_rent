@@ -22,6 +22,7 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="{% static 'webapp/css/style.css' %}">
+{#    <link rel="stylesheet" href="{% static 'webapp/css/main.css' %}"> <!-- MAIN CSS paginator css-->#}
 
   </head>
   {%  endblock %}
@@ -50,7 +51,7 @@
 
             <div class="col-3 ">
               <div class="site-logo">
-                <a href="../../webapp/templates/webapp/index.html">CarRent</a>
+                <a href="{% url 'webapp:home' %}">CarRent</a>
               </div>
             </div>
 
@@ -162,8 +163,7 @@
     <script src="{% static 'webapp/js/jquery.easing.1.3.js' %}"></script>
     <script src="{% static 'webapp/js/bootstrap-datepicker.min.js' %}"></script>
     <script src="{% static 'webapp/js/aos.js' %}"></script>
-
-    <script src="{% static 'webapp/js/main.js' %}"></script>
+	<script src="{% static 'webapp/js/main.js' %}"></script>
 
   </body>
 
