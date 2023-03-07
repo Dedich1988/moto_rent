@@ -16,14 +16,46 @@
 }
 
 .pagination a:hover {
-  background-color: #ccc;
+  background-color: #007bff;
 }
 
 .pagination .current-page {
   margin-right: 10px;
   padding: 5px 10px;
-  border: 1px solid #333;
+  border: 1px solid #007bff;
   border-radius: 5px;
-  background-color: #333;
+  background-color: #007bff;
   color: #fff;
+}
+.owl-prev,
+.owl-next {
+  background-color: #ffffff;
+  color: #333333;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: 2px solid #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: #333333;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.owl-prev {
+  left: 20px;
+}
+
+.owl-next {
+  right: 20px;
 }
