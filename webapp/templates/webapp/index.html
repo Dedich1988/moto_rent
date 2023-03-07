@@ -7,20 +7,20 @@
      {% block content %}
 
     <div class="ftco-blocks-cover-1">
-      <div class="ftco-cover-1 overlay" style="background-image: url('../../static/webapp/images/hero_1.jpg')">
+      <div class="ftco-cover-1 overlay" style="background-image: url('{{main_car.photo_url}}')">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-5">
               <div class="feature-car-rent-box-1">
-                <h3>Range Rover S7</h3>
+                <h3>{{ main_car.title}}</h3>
                 <ul class="list-unstyled">
                   <li>
                     <span>Doors</span>
-                    <span class="spec">4</span>
+                    <span class="spec">{{ main_car.door_num }}</span>
                   </li>
                   <li>
                     <span>Seats</span>
-                    <span class="spec">6</span>
+                    <span class="spec">{{ main_car.seat_num }}</span>
                   </li>
                   <li>
                     <span>Lugage</span>
@@ -28,7 +28,7 @@
                   </li>
                   <li>
                     <span>Transmission</span>
-                    <span class="spec">Automatic</span>
+                    <span class="spec">{{ main_car.transmission.title }}</span>
                   </li>
                   <li>
                     <span>Minium age</span>
@@ -36,7 +36,7 @@
                   </li>
                 </ul>
                 <div class="d-flex align-items-center bg-light p-3">
-                  <span>$150/day</span>
+                  <span>${{ main_car.price }}/day</span>
                   <a href="contact.html" class="ml-auto btn btn-primary">Rent Now</a>
                 </div>
               </div>
@@ -93,25 +93,22 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
-            <h3>Our Offer</h3>
-            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure nesciunt nemo vel earum maxime neque!</p>
-            <p>
-              <a href="#" class="btn btn-primary custom-prev">Previous</a>
-              <span class="mx-2">/</span>
-              <a href="#" class="btn btn-primary custom-next">Next</a>
-            </p>
+            <h3>Better rankings</h3>
+            <p class="mb-4">Rent a car and hit the road! Our fleet of high-quality vehicles is ready to take you wherever you want to go. With affordable prices and flexible rental options, we make it easy for you to travel on your own terms. Whether you need a car for a weekend getaway or a long-term rental, we've got you covered. Book online now and start your adventure today!</p>
+
           </div>
           <div class="col-lg-9">
 
 
-
+			<!-- Карусель -->
 
             <div class="nonloop-block-13 owl-carousel">
+				{% for car in cars %}
               <div class="item-1">
-                <a href="#"><img src="{% static 'webapp/images/img_1.jpg' %}" alt="Image" class="img-fluid"></a>
+                <a href="#"><img src="{{car.photo.url}}" alt="Image" class="img-fluid"></a>
                 <div class="item-1-contents">
                   <div class="text-center">
-                  <h3><a href="#">Range Rover S64 Coupe</a></h3>
+                  <h3><a href="#">{{ car.title}}</a></h3>
                   <div class="rating">
                     <span class="icon-star text-warning"></span>
                     <span class="icon-star text-warning"></span>
@@ -119,20 +116,20 @@
                     <span class="icon-star text-warning"></span>
                     <span class="icon-star text-warning"></span>
                   </div>
-                  <div class="rent-price"><span>$250/</span>day</div>
+                  <div class="rent-price"><span>${{ car.price }}/</span>day</div>
                   </div>
                   <ul class="specs">
                     <li>
                       <span>Doors</span>
-                      <span class="spec">4</span>
+                      <span class="spec">{{ car.door_num }}</span>
                     </li>
                     <li>
                       <span>Seats</span>
-                      <span class="spec">5</span>
+                      <span class="spec">{{ car.seat_num }}</span>
                     </li>
                     <li>
                       <span>Transmission</span>
-                      <span class="spec">Automatic</span>
+                      <span class="spec">{{ car.transmission.title }}</span>
                     </li>
                     <li>
                       <span>Minium age</span>
@@ -144,45 +141,45 @@
                   </div>
                 </div>
               </div>
+				{% endfor %}
 
-
-              <div class="item-1">
-                <a href="#"><img src="{% static 'webapp/images/img_2.jpg' %}" alt="Image" class="img-fluid"></a>
-                <div class="item-1-contents">
-                  <div class="text-center">
-                  <h3><a href="#">Range Rover S64 Coupe</a></h3>
-                  <div class="rating">
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                  </div>
-                  <div class="rent-price"><span>$250/</span>day</div>
-                  </div>
-                  <ul class="specs">
-                    <li>
-                      <span>Doors</span>
-                      <span class="spec">4</span>
-                    </li>
-                    <li>
-                      <span>Seats</span>
-                      <span class="spec">5</span>
-                    </li>
-                    <li>
-                      <span>Transmission</span>
-                      <span class="spec">Automatic</span>
-                    </li>
-                    <li>
-                      <span>Minium age</span>
-                      <span class="spec">18 years</span>
-                    </li>
-                  </ul>
-                  <div class="d-flex action">
-                    <a href="contact.html" class="btn btn-primary">Rent Now</a>
-                  </div>
-                </div>
-              </div>
+{#              <div class="item-1">#}
+{#                <a href="#"><img src="{% static 'webapp/images/img_2.jpg' %}" alt="Image" class="img-fluid"></a>#}
+{#                <div class="item-1-contents">#}
+{#                  <div class="text-center">#}
+{#                  <h3><a href="#">Range Rover S64 Coupe</a></h3>#}
+{#                  <div class="rating">#}
+{#                    <span class="icon-star text-warning"></span>#}
+{#                    <span class="icon-star text-warning"></span>#}
+{#                    <span class="icon-star text-warning"></span>#}
+{#                    <span class="icon-star text-warning"></span>#}
+{#                    <span class="icon-star text-warning"></span>#}
+{#                  </div>#}
+{#                  <div class="rent-price"><span>$250/</span>day</div>#}
+{#                  </div>#}
+{#                  <ul class="specs">#}
+{#                    <li>#}
+{#                      <span>Doors</span>#}
+{#                      <span class="spec">4</span>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                      <span>Seats</span>#}
+{#                      <span class="spec">5</span>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                      <span>Transmission</span>#}
+{#                      <span class="spec">Automatic</span>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                      <span>Minium age</span>#}
+{#                      <span class="spec">18 years</span>#}
+{#                    </li>#}
+{#                  </ul>#}
+{#                  <div class="d-flex action">#}
+{#                    <a href="contact.html" class="btn btn-primary">Rent Now</a>#}
+{#                  </div>#}
+{#                </div>#}
+{#              </div>#}
 
             </div>
             
@@ -280,29 +277,29 @@
           <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="testimonial-2">
               <blockquote class="mb-4">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+                <p>""I had a great experience renting a car from this company. The staff was friendly and helpful, and the car was clean and reliable. I would definitely rent from them again!""</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
                 <img src="{% static 'webapp/images/person_1.jpg' %}" alt="Image" class="img-fluid mr-3">
-                <span>Mike Fisher</span>
+                <span>Dzmitry Hitri</span>
               </div>
             </div>
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="testimonial-2">
               <blockquote class="mb-4">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+                <p>"Я арендовала машину на выходные и получила много удовольствия от езды. Но у меня была только одна жалоба - мне не понравился цвет машины. Я заказала красную машину, а получила зеленую. Но, возможно, это был только способ проверить мою цветовую палитру!"</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
                 <img src="{% static 'webapp/images/person_2.jpg' %}" alt="Image" class="img-fluid mr-3">
-                <span>Jean Stanley</span>
+                <span>Alena Dobravolskaya</span>
               </div>
             </div>
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="testimonial-2">
               <blockquote class="mb-4">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
+                <p>"Great car rental website! Easy to use, with a wide selection of cars at affordable prices. Customer service was top-notch and the staff was friendly and helpful. Highly recommend for anyone in need of a reliable rental car."</p>
               </blockquote>
               <div class="d-flex v-card align-items-center">
                 <img src="{% static 'webapp/images/person_3.jpg' %}" alt="Image" class="img-fluid mr-3">
