@@ -36,3 +36,30 @@ class Car(models.Model):
         return mark_safe('<img src="%s" width="150" height="150" />' % self.photo.url)
 
     image_tag.short_description = 'Image'
+
+
+
+
+class About(models.Model):
+    """About model"""
+
+    level = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
+    text = models.TextField()
+    photo = models.ImageField(upload_to='skill_photos/', blank=True)
+
+    def __str__(self):
+        return self.text[20:]
+
+
+    class Meta:
+        verbose_name_plural = "Abouts"
+
+    @property
+    def photo_url(self):
+        return self.photo.url if self.photo else ''
+
+    def image_tag(self):
+        return mark_safe('<img src="%s" width="150" height="150" />' % self.photo.url)
+
+    image_tag.short_description = 'Image'

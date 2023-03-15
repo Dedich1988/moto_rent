@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from webapp.models import Car
+from webapp.models import *
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -13,7 +13,13 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'webapp/about.html')
+    abouts = About.objects.all()
+    paginator = Paginator(abouts, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'abouts': page_obj}
+    return render(request, 'webapp/about.html', context=context)
+
 
 
 def cars(request):
