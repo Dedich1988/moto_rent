@@ -110,11 +110,13 @@
                   <div class="text-center">
                   <h3><a href="#">{{ car.title}}</a></h3>
                   <div class="rating">
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
-                    <span class="icon-star text-warning"></span>
+                    {% for i in '12345' %}
+                                            {% if forloop.counter <= car.rating %}
+                                                <span class="icon-star text-warning"></span>
+                                            {% else %}
+                                                <span class="icon-star text-light"></span>
+                                            {% endif %}
+                                        {% endfor %}
                   </div>
                   <div class="rent-price"><span>${{ car.price }}/</span>day</div>
                   </div>
