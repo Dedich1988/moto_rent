@@ -24,14 +24,16 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 mb-5 mb-lg-0 order-lg-2">
-            <img src="{% static 'webapp/images/DD.jpg' %}" alt="Image" class="img-fluid">
+            <img src="{% static 'webapp/images/hero_1.jpg' %}" alt="Image" class="img-fluid">
           </div>
           <div class="col-lg-4 mr-auto">
-            <h2>Dzmitry Dabravolski</h2>
-            <p>Dedich1988@gmail.com</p>
-            <p>https://github.com/Dedich1988</p>
-			<p>https://www.linkedin.com/in/dzmitry-dabravolski-8549a2b2/</p>
-			<p>https://t.me/DzmitryGoodwill</p>
+            <h2>About us</h2>
+            <p>Welcome to RentDrive.by – the leading car rental company in Belarus. We are committed to providing you with the best possible car rental experience.
+
+Our mission is to make your journey enjoyable and hassle-free. We offer a wide range of vehicles to suit your needs and budget, including economy cars, luxury cars, SUVs, and vans. All of our vehicles are well-maintained and come with all the necessary insurance coverage.
+
+At RentDrive.by, we believe in transparency and fair pricing. There are no hidden fees, and our rates are competitive.</p>
+
 
           </div>
         </div>
@@ -42,9 +44,9 @@
       <div class="container">
         <div class="row justify-content-center text-center mb-5 section-2-title">
           <div class="col-md-6">
-            <span class="text-primary">Skills</span>
-            <h2 class="mb-4">My skills</h2>
-            <p>I possess strong skills in Python, with a basic understanding of Django web framework and SQL. My knowledge of Python includes expertise in its syntax, data types, and control structures, and I have applied this knowledge to build simple applications using Django. I am familiar with SQL and have worked with its basic commands and concepts to manage relational databases. While my expertise in Django is at a basic level, I am keen to further develop my skills in this area and leverage my knowledge to build robust web applications</p>
+            <span class="text-primary">rentdrive.by</span>
+            <h2 class="mb-4">Our Team</h2>
+            <p>At RentDrive.by, we are proud to have a team of dedicated professionals who are passionate about providing you with the best possible car rental experience. Our team is made up of individuals who bring a wealth of knowledge and experience to the table, ensuring that you receive the highest level of customer service and satisfaction.</p>
           </div>
         </div>
         <div class="row align-items-stretch">
@@ -63,7 +65,23 @@
             </div>
           </div>
           {% endfor %}
+           <div class="pagination">
+    <span class="step-links">
+      {% if page_obj.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+      {% endif %}
 
+      <span class="current-page">
+        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">next</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+      {% endif %}
+    </span>
+  </div>
 
         </div>
       </div>
@@ -77,8 +95,8 @@
           </div>
           <div class="col-lg-4 ml-auto">
             <h2>Our History</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit suscipit, repudiandae similique accusantium eius nulla quam laudantium sequi.</p>
-            <p>Debitis voluptates corporis saepe molestias tenetur ab quae, quo earum commodi, laborum dolore, fuga aliquid delectus cum ipsa?</p>
+            <p>RentDrive.by was founded in 2010 with the goal of providing reliable, affordable car rental services to residents and visitors of Belarus. Over the years, we have grown to become the leading car rental company in the country, serving thousands of customers each year.</p>
+            <p>Thank you for choosing RentDrive.by, and we look forward to being a part of your journey.</p>
           </div>
         </div>
       </div>
@@ -88,7 +106,7 @@
       <div class="row justify-content-center text-center">
         <div class="col-7 text-center mb-5">
           <h2>How it works</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+          <p>Unfortunately, we do not yet know!</p>
         </div>
       </div>
       <div class="how-it-works d-flex">

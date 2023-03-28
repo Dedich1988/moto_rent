@@ -63,3 +63,8 @@ class About(models.Model):
         return mark_safe('<img src="%s" width="150" height="150" />' % self.photo.url)
 
     image_tag.short_description = 'Image'
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    answer_text = models.CharField(max_length=200)
+    hint_text = models.CharField(max_length=200)
