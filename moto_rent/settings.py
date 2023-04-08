@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp',
     'blog',
+    'bootstrap4',
+    'debug_toolbar',
 
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,7 +54,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+MIDDLEWARE += [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
 ROOT_URLCONF = 'moto_rent.urls'
 
 TEMPLATES = [
@@ -64,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'webapp.context_processors.user'
             ],
         },
     },

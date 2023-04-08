@@ -1,4 +1,9 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from webapp.forms import RegisterUserForm
 from webapp.models import *
 from django.core.paginator import Paginator
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
@@ -97,3 +102,22 @@ def question_view(request):
         random_question = random.choice(questions)
         context = {'question': random_question}
         return render(request, 'webapp/question.html', context)
+
+
+class CRLoginView(LoginView):
+    template_name = 'webapp/login.html'
+    redirect_authenticated_user = True
+
+
+class CRLogoutView(LoginRequiredMixin, LogoutView):
+    template_name = 'webapp/logout.html'
+
+class RegisterUserView(CreateView):
+    model = User
+    template_name = 'webapp/register_user.html'
+    form_class = RegisterUserForm
+    success_url = reverse_lazy('webapp:register_done')
+
+
+class RegisterDoneView(TemplateView):
+    template_name = 'webapp/register_done.html'

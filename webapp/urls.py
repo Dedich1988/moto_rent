@@ -11,5 +11,10 @@ urlpatterns = [path('', index, name='home'),
                path('contact/', contact, name='contact'),
                path('services/', services, name='services'),
                path('question/', question_view, name='question'),
+               path('accounts/login/', CRLoginView.as_view(), name='login'),
+               path('accounts/logout/', CRLogoutView.as_view(), name='logout'),
+               path('accounts/register/', RegisterUserView.as_view(), name='register'),
+               path('accounts/regitster/done/', RegisterDoneView.as_view(), name='register_done'),
+
 ]
 
