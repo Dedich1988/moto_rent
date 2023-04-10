@@ -1,37 +1,32 @@
+from typing import List
+import random
+
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.core.paginator import Paginator
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import render
-from django.urls import reverse_lazy
-from webapp.forms import RegisterUserForm
-from webapp.models import *
-from django.core.paginator import Paginator
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
-from django.shortcuts import redirect
-import random
-# Create your views here.
+
 from rest_framework import generics
 
-from .serializers import CarSerializer
+from webapp.forms import RegisterUserForm
+from webapp.models import Car, About, Question
+from webapp.serializers import CarSerializer
 
 class CarListAPIView(generics.ListAPIView):
+    """API view for listing all cars"""
     queryset = Car.objects.all()
     serializer_class = CarSerializer
 
-def index(request):
-    cars = Car.objects.all()[:10]
-    main_car = Car.objects.order_by('?').first()
-    context = {'cars': cars, 'main_car': main_car}
+def index(request) -> render:
+    """View for rendering index page"""
+    cars: List[Car] = Car.objects.all()[:10]
+    main_car: Car = Car.objects.order_by('?').first()
+    context: dict = {'cars': cars, 'main_car': main_car}
     return render(request, 'webapp/index.html', context=context)
 
-
-# def about(request):
-#     abouts = About.objects.all()
-#     paginator = Paginator(abouts, 6)
-#     page_number = request.GET.get('page')
-#     page_obj = paginator.get_page(page_number)
-#     context = {'abouts': page_obj}
-#     return render(request, 'webapp/about.html', context=context)
 
 class AboutView(ListView):
     """About views for getting list object"""
@@ -41,18 +36,8 @@ class AboutView(ListView):
     paginate_by = 6
 
 
-# def cars(request):
-#     """View for getting paginated cars"""
-#     cars = Car.objects.all().order_by('price')
-#     paginator = Paginator(cars, 6)
-#     page_number = request.GET.get('page')
-#     page_obj = paginator.get_page(page_number)
-#     context = {'cars': page_obj}
-#     return render(request, 'webapp/cars.html', context=context)
-
 def cars(request):
     """View for getting paginated cars"""
-
     cars = Car.objects.all().order_by('price')
     paginator = Paginator(cars, 6)
     page_number = request.GET.get('page')
@@ -66,19 +51,19 @@ class CarDetailView(DetailView):
     model = Car
     template_name = 'webapp/car_detail.html'
 
+
 def contact(request):
+    """View for rendering contact page"""
     return render(request, 'webapp/contact.html')
 
 
 def services(request):
+    """View for rendering services page"""
     return render(request, 'webapp/services.html')
 
 
-
-
-
-
 def question_view(request):
+    """View for rendering question page"""
     if request.method == 'POST':
         question_id = request.POST.get('question_id')
         action = request.POST.get('action')
@@ -104,14 +89,18 @@ def question_view(request):
 
 
 class CRLoginView(LoginView):
+    """View for rendering login page"""
     template_name = 'webapp/login.html'
     redirect_authenticated_user = True
 
 
 class CRLogoutView(LoginRequiredMixin, LogoutView):
+    """View for rendering logout page"""
     template_name = 'webapp/logout.html'
 
+
 class RegisterUserView(CreateView):
+    """View for rendering user registration page"""
     model = User
     template_name = 'webapp/register_user.html'
     form_class = RegisterUserForm
