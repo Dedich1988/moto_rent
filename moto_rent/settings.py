@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'blog',
     'bootstrap4',
     'debug_toolbar',
+    'rest_framework',
 
 ]
 

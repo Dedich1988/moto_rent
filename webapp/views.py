@@ -10,7 +10,13 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from django.shortcuts import redirect
 import random
 # Create your views here.
+from rest_framework import generics
 
+from .serializers import CarSerializer
+
+class CarListAPIView(generics.ListAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
 
 def index(request):
     cars = Car.objects.all()[:10]
@@ -44,22 +50,15 @@ class AboutView(ListView):
 #     context = {'cars': page_obj}
 #     return render(request, 'webapp/cars.html', context=context)
 
-class CarListView(ListView):
-    """Car List View for getting list objects"""
-    template_name = 'webapp/cars.html'
-    context_object_name = 'cars'
+def cars(request):
+    """View for getting paginated cars"""
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        page_number = self.request.GET.get('page')
-        paginator = Paginator(context['object_list'], 4)
-        page_objs = paginator.get_page(page_number)
-        context['page_objs'] = page_objs
-        return super().get_context_data(**context)
-
-
-    def get_queryset(self):
-        return Car.objects.all()
+    cars = Car.objects.all().order_by('price')
+    paginator = Paginator(cars, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {'cars': page_obj}
+    return render(request, 'webapp/cars.html', context=context)
 
 
 class CarDetailView(DetailView):
